@@ -29,10 +29,34 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                           onSaved: (String? val) {
                             // 저장이 실행되면 startTime 변수에 텍스트 필드값 저장
                             startTime = int.parse(val!);
-                          }
-                        )
+                          },
+                          validator: timeValidator,
+                        ),
+                      ),
+                      const Sizedbox(width: 16.0),
+                      Expanded(
+                        child: CustomTextField( // 종료 시간 입력 필드
+                          label: '종료 시간',
+                          isTime: true,
+                          onSaved: (String? val) {
+                            endTime = int.parse(val!);
+                          },
+                          validator: timeValidator,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8.0),
+                  Expanded(
+                    child: CustomTextField(
+                      child: CustomTextFiled(
+                        label: '내용',
+                        isTime: false,
+                        onSaved: (String? val) {
+                          content = val;
+                        },
                       )
-                    ]
+                    )
                   )
                 ]
               )

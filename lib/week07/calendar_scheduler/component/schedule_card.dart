@@ -39,11 +39,19 @@ class _Time extends StatelessWidget {
   }
 }
 
-class _Context extends StatelessWidget {
+class _Content extends StatelessWidget {
   final String content; // 내용
 
   const _Content({
     required this.content,
     Key? key,
   }) : super(key: key);
+
+  Widget build(BuildContext context) {
+    return Expanded( // 최대한 넓게 늘리기
+      child : Text(
+        content,
+      ),
+    );
+  }
 }

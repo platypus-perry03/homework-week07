@@ -20,10 +20,18 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column ( // 세로로 텍스트와 텍스트 필드 배치
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      
-    ]
-
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+            color: PRIMARY_COLOR,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        Expanded(
+          
+        )
+      ]
     )
   }
 }

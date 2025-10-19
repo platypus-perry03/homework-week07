@@ -65,14 +65,40 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: schedules.length,
                     itemBuilder: (context, index) {
                       final schedule = schedules[index];
-                    }
-                  )
-                }
-              )
-            )
-          ]
-        )
-      )
-    )
+
+                      return Dismissible(
+                        key: ObjectKey(schedule.id),
+                        direction: DismissDirection.startToEnd,
+                        onDismissed: (DismissDirection direction) {
+                          GetIt.I<LocalDatabase>().removeSchedule(schedule.id);
+                        },
+                        background: Container(
+                          color: Colors.red.withOpacity(0.1),
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: const Icon(Icons.delete),
+                        ),
+                        child: Paddin(
+                          padding: const EdgeInsets.only(
+                            bottom: 8.0,
+                            left: 8.0,
+                            right: 8.0
+                          ),
+                          child: ScheduleCard(
+                            startTime: schedule.startTime,
+                            endTime: schedule.endTime,
+                            content: schedule.context, 
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

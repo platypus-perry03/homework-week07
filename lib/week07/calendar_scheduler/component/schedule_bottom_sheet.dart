@@ -13,7 +13,30 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
       key: formKey, // Form을 조작할 키값
       child: SafeArea(
         child: Container(
-          
+          height: MediaQuery.of(context).size.height / 2 + bottomInset,
+          color: Colors.white,
+          child: Padding(
+            padding:
+              EdgeInsets.only(left: 8, right: 8, top: 8, bottom: bottomInset),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomTextField(
+                          label: '시작 시간',
+                          isTime: true,
+                          onSaved: (String? val) {
+                            // 저장이 실행되면 startTime 변수에 텍스트 필드값 저장
+                            startTime = int.parse(val!);
+                          }
+                        )
+                      )
+                    ]
+                  )
+                ]
+              )
+          )
         )
       )
     )

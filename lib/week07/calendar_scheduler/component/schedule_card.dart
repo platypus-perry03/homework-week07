@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class _Time extends StatelessWidget {
   final int startTime; // 시작 시간
-  final int endTIme; // 종료 시간
+  final int endTime; // 종료 시간
 
   const _Time({
     required this.startTime,
@@ -30,8 +30,11 @@ class _Time extends StatelessWidget {
         Text(
           // 숫자가 두 자릿수가 안ㄷ ㅚ면 0으로 채워주기
           '${endTime.toString().padLeft(2, '0')}:00',
-        )
-      ]
-    )
+          style: textStyle.copyWith(
+            fontSize: 10.0,
+          ),
+        ),
+      ],
+    );
   }
 }

@@ -88,8 +88,8 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
           endTime: Value(endTime!),
           context: Value(content!),
           data: Value(widget.selectedDate),
-        )
-      )
+        ),
+      );
     }
   }
 }

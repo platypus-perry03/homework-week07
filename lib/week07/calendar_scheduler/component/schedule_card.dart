@@ -33,7 +33,22 @@ class _HomeScreenState extends State<HomeScreen> {
               onDaySelected: onDaySelected, // 날짜가 선택됐을 때 실행할 함수
             ),
 
-            
+            const SizedBox(height: 8.0),
+            StreamBuilder<List<Schedule>>(
+              stream: GetIt.I<LocalDatabase>().watchSchedules(selectedDate),
+              builder: (context, snapshot) {
+                return TodayBanner(
+                  selectedDate: selectedDate,
+                  const: snapshot.data?.length ?? 0,
+                );
+              },
+            ),
+            const SizedBox(height: 8.0),
+            Expanded(
+              child: StreamBuilder<List<schedule>> (
+                stream: G
+              )
+            )
           ]
         )
       )

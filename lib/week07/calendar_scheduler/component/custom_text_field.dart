@@ -12,5 +12,18 @@ class CustomTextField extends StatelessWidget {
     required this.isTime,
     required this.onSaved,
     required this.validator,
-  })
+
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column ( // 세로로 텍스트와 텍스트 필드 배치
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      
+    ]
+
+    )
+  }
 }

@@ -38,3 +38,12 @@ class _Time extends StatelessWidget {
     );
   }
 }
+
+class _Context extends StatelessWidget {
+  final String content; // 내용
+
+  const _Content({
+    required this.content,
+    Key? key,
+  }) : super(key: key);
+}

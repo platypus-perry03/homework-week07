@@ -33,3 +33,12 @@ class LocalDatabase extends _$LocalDatabase {
   int get schemaVersion => 1;
 }
 // Code Generation으로 생성할 클래스 상속
+
+LazyDatabase _openConnection() {
+  return LazyDatabase(() async {
+    // 데이터베이스 파일 저장할 폴더
+    final dbFolder = await getApplicationDocumentsDirectory();
+    final file = File(p.join(dbFolder.path, 'db.sqlite'));
+    return NativeDatabase(file);
+  });
+}

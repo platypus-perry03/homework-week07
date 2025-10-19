@@ -9,5 +9,9 @@ part 'drift_database.g.dart'; // part 파일 지정
     Schedules,
   ],
 )
-class LocalDatabase extends _$LocalDatabase {}
+class LocalDatabase extends _$LocalDatabase {
+  Stream<List<Schedule>> watchSchedules(DateTime date) =>
+  // 데이터를 조회하고 변화 감지
+    (selecte(schedules)..((tbl) => tbl.date.equals(date))).watch();
+}
 // Code Generation으로 생성할 클래스 상속

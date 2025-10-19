@@ -77,4 +77,19 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
       ),
     );
    }
+
+  void onSavePressed() async {
+    if ((formKey.currentState?.validate() ?? false)) {
+      formKey.currentState!.save();
+
+      await GetIt.I<LocalDatabase().createSchedule(
+        SchedulesCompanion(
+          startTime: Value(startTime!),
+          endTime: Value(endTime!),
+          context: Value(content!),
+          data: Value(widget.selectedDate),
+        )
+      )
+    }
+  }
 }

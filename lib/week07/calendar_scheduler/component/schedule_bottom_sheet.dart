@@ -55,14 +55,26 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                         onSaved: (String? val) {
                           content = val;
                         },
-                      )
-                    )
-                  )
-                ]
-              )
-          )
-        )
-      )
-    )
+                        validator: contentValidator,
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton( // [저장] 버튼
+                        onPressed: onSavePressed,
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: PRIMARY_COLOR,
+                        ),
+                        child: const Text('저장'),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+          ),
+        ),
+      ),
+    );
    }
 }
